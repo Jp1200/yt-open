@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YT-DLP App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark">
+
+  <!-- Settings Dropdown -->
+  <div class="settings">
+    <div class="dropdown">
+      <button class="dropbtn">⚙️ Settings</button>
+      <div class="dropdown-content">
+        <a href="#" id="themeToggle">Toggle Light/Dark Mode</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>File Explorer</h3>
+    <ul>
+      <li>📄 main.py</li>
+      <li>📁 utils/
+        <ul>
+          <li>📄 parser.py</li>
+          <li>📄 config.js</li>
+        </ul>
+      </li>
+      <li>📄 README.md</li>
+    </ul>
+  </div>
+
+  <!-- Main Downloader UI -->
+  <div class="main">
+    <div class="downloader">
+      <h2>Downloader</h2>
+      <div class="input-container">
+        <input type="text" placeholder="Enter URL here..." id="urlInput" />
+        <button title="Download">⬇️</button>
+      </div>
+      <div class="options">
+        <button class="toggle-btn">Option 1</button>
+        <button class="toggle-btn">Option 2</button>
+        <button class="toggle-btn">Option 3</button>
+        <button class="toggle-btn">Option 4</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+:root {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --accent: #1f1f1f;
+  --input-bg: #2a2a2a;
+  --button-bg: #333;
+  --button-active: #555;
+}
+
+body.light {
+  --bg: #f5f5f5;
+  --text: #222;
+  --accent: #e0e0e0;
+  --input-bg: #fff;
+  --button-bg: #ddd;
+  --button-active: #bbb;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  height: 100vh;
+}
+
+.settings {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: var(--button-bg);
+  color: var(--text);
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--accent);
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: var(--text);
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--button-active);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: var(--accent);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.downloader {
+  background-color: var(--accent);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+}
+
+.downloader h2 {
+  margin-top: 0;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  background-color: var(--input-bg);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+}
+
+.input-container button {
+  background: none;
+  border: none;
+  color: var(--text);
+  padding: 0 16px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn {
+  background-color: var(--button-bg);
+  border: none;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-btn.active {
+  background-color: var(--button-active);
+}
