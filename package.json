@@ -1,0 +1,24 @@
+{
+  "name": "ytdlp-wrapper",
+  "version": "1.0.0",
+  "description": "Electron based app for downloading anything from youtube",
+  "homepage": "https://github.com/Jp1200/yt-open#readme",
+  "bugs": {
+    "url": "https://github.com/Jp1200/yt-open/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jp1200/yt-open.git"
+  },
+  "license": "ISC",
+  "author": "Jack Parker",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "devDependencies": {
+    "electron": "^37.2.5"
+  }
+}
