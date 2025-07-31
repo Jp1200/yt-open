@@ -1,7 +1,8 @@
 console.log("Hello from Electron!")
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain, dialog} = require('electron')
 const path = require('path');
 const { spawn } = require('child_process');
+const fs = require('fs');
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
@@ -12,6 +13,30 @@ const createWindow = () => {
     })
     win.loadFile('src/index.html')
 }
+ipcMain.handle('select-folder', async () => {
+  const result = await dialog.showOpenDialog({
+    properties: ['openDirectory']
+  });
+
+  if (result.canceled || result.filePaths.length === 0) {
+    return null;
+  }
+
+  return result.filePaths[0];
+});
+
+ipcMain.handle('read-dir', async (_event, dirPath) => {
+  try {
+    const files = fs.readdirSync(dirPath).map(name => {
+      const fullPath = path.join(dirPath, name);
+      const isDirectory = fs.statSync(fullPath).isDirectory();
+      return { name, path: fullPath, isDirectory };
+    });
+    return files;
+  } catch (err) {
+    return { error: err.message };
+  }
+});
 ipcMain.on('start-download', (event, data) => {
   const { url, options } = data;
 

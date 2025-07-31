@@ -23,3 +23,38 @@ document.querySelector('.input-container button').addEventListener('click', () =
     alert("Download started!");
   }
 });
+
+// Handler functions for file explorer
+const fileListEl = document.getElementById('file-list');
+let currentPath = '';
+document.getElementById('open-folder-btn').addEventListener('click', async() => {
+    const folderPath = await window.electronAPI.selectFolder();
+    if (folderPath){
+        currentPath = folderPath;
+        loadDirectory(folderPath);
+    }
+})
+async function loadDirectory(dirPath) {
+    const contents = await window.electronAPI.readDir(dirPath)
+    if (contents.error){
+        alert(`Error: ${contents.error}`)
+        return;
+    }
+    fileListEl.innerHTML = '';
+    for(const item of contents){
+        const li = document.createElement('li');
+        li.textContent = item.isDirectory ? `📁 ${item.name}` : `📄 ${item.name}`;
+        li.className = item.isDirectory ? 'dir-item' : 'file-item';
+        li.dataset.path = item.path;
+
+        li.addEventListener('click',()=>{
+            if (item.isDirectory){
+                currentPath =item.path;
+                loadDirectory(item.path);
+            } else {
+                alert(`You clicked file: ${item.name}`)
+            }
+        });
+        fileListEl.appendChild(li)
+    }
+}

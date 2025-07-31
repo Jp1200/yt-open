@@ -1,5 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  downloadVideo: (url, options) => ipcRenderer.send('start-download', { url, options }),
+    selectFolder: () => ipcRenderer.invoke('select-folder'),
+    readDir: (path) => ipcRenderer.invoke('read-dir', path), 
+    downloadVideo: (url, options) => ipcRenderer.send('start-download', { url, options }),
 });

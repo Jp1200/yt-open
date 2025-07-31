@@ -7,29 +7,10 @@
 </head>
 <body class="dark">
 
-  <!-- Settings Dropdown -->
-  <div class="settings">
-    <div class="dropdown">
-      <button class="dropbtn">⚙️ Settings</button>
-      <div class="dropdown-content">
-        <a href="#" id="themeToggle">Toggle Light/Dark Mode</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Sidebar -->
   <div class="sidebar">
-    <h3>File Explorer</h3>
-    <ul>
-      <li>📄 main.py</li>
-      <li>📁 utils/
-        <ul>
-          <li>📄 parser.py</li>
-          <li>📄 config.js</li>
-        </ul>
-      </li>
-      <li>📄 README.md</li>
-    </ul>
+    <button id="open-folder-btn">📂 Open Directory</button>
+    <ul id="file-list"></ul>
   </div>
 
   <!-- Main Downloader UI -->
@@ -48,7 +29,14 @@
       </div>
     </div>
   </div>
-
+   <div class="settings-float">
+    <div class="dropdown">
+      <button class="dropbtn">⚙️</button>
+      <div class="dropdown-content">
+        <a href="#" id="themeToggle">Toggle Light/Dark Mode</a>
+      </div>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
