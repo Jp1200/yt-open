@@ -87,8 +87,11 @@ body {
   border-radius: 4px;
   margin-bottom: 10px;
   cursor: pointer;
+  
 }
-
+.sidebar button:hover{
+    background-color: #555;
+}
 .sidebar ul {
   list-style: none;
   padding-left: 0;

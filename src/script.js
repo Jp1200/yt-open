@@ -26,12 +26,15 @@ document.querySelector('.input-container button').addEventListener('click', () =
 
 // Handler functions for file explorer
 const fileListEl = document.getElementById('file-list');
+const dirNameSpan = document.getElementById('dir-name');
 let currentPath = '';
 document.getElementById('open-folder-btn').addEventListener('click', async() => {
     const folderPath = await window.electronAPI.selectFolder();
     if (folderPath){
         currentPath = folderPath;
+        dirNameSpan.innerText = currentPath;
         loadDirectory(folderPath);
+        document.getElementById('open-folder-btn').innerText('Change Directory')
     }
 })
 async function loadDirectory(dirPath) {
@@ -56,5 +59,6 @@ async function loadDirectory(dirPath) {
             }
         });
         fileListEl.appendChild(li)
+
     }
 }
